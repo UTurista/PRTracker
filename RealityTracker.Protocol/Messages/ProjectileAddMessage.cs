@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Numerics;
 
 namespace RealityTracker.Protocol.Messages
 {
-    internal class ProjectileAddMessage : IMessage
+    internal readonly record struct ProjectileAddMessage : IMessage
     {
         internal const byte Type = 0x91;
 
@@ -16,6 +11,6 @@ namespace RealityTracker.Protocol.Messages
         public required string Name { get; init; }
         public required ushort Id { get; init; }
         public required byte ProjectileType { get; init; }
-        public byte PlayerId { get; internal set; }
+        public byte PlayerId { get; init; }
     }
 }

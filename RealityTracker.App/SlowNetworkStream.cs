@@ -1,6 +1,4 @@
-﻿using System.Threading;
-
-namespace RealityTracker.Protocol
+﻿namespace RealityTracker.Protocol
 {
     public class SlowNetworkStream : Stream
     {

@@ -1,11 +1,8 @@
 ﻿namespace RealityTracker.Protocol.Messages
 {
-    public class RoundEndedMessage : IMessage
+    public readonly record struct RoundEndedMessage : IMessage
     {
         public const byte Type = 0xF0;
-
-        public RoundEndedMessage(BinaryReader reader, short messageLength)
-        {
-        }
+        public static readonly RoundEndedMessage Instance = new ();
     }
 }

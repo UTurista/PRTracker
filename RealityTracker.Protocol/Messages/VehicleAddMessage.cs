@@ -1,6 +1,6 @@
 ﻿namespace RealityTracker.Protocol.Messages
 {
-    public class VehicleAddMessage : IMessage
+    public readonly record struct VehicleAddMessage : IMessage
     {
         public const byte Type = 0x21;
         public required Vehicle[] Vehicles { get; init; }

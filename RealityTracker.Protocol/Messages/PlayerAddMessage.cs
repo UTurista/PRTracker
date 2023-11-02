@@ -1,11 +1,11 @@
 ﻿namespace RealityTracker.Protocol.Messages
 {
-    public sealed record PlayerAddMessage : IMessage
+    public readonly record struct PlayerAddMessage : IMessage
     {
         public const byte Type = 0x11;
         public required Player[] Players { get; init; }
 
-        public sealed record Player
+        public readonly record struct Player
         {
             public required byte PlayerID { get; init; }
             public required string PlayerName { get; init; }

@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Numerics;
 
 namespace RealityTracker.Protocol.Messages
 {
-    internal class ProjectileUpdateMessage : IMessage
+    internal readonly record struct ProjectileUpdateMessage : IMessage
     {
         internal const byte Type = 0x90;
 
-        public Projectile[] Projectiles { get; internal set; }
+        public Projectile[] Projectiles { get; init; }
 
-        internal class Projectile
+        internal readonly record struct Projectile
         {
-            public Vector3? Position { get; set; }
-            public ushort Id { get; internal set; }
-            public short Yaw { get; internal set; }
+            public Vector3? Position { get; init; }
+            public ushort Id { get; init; }
+            public short Yaw { get; init; }
         }
     }
 }

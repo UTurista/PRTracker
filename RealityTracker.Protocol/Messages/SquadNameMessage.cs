@@ -1,6 +1,6 @@
 ﻿namespace RealityTracker.Protocol.Messages
 {
-    public class SquadNameMessage : IMessage
+    public readonly record struct SquadNameMessage : IMessage
     {
         public const byte Type = 0xA2;
 

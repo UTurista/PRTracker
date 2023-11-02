@@ -1,6 +1,6 @@
 ﻿namespace RealityTracker.Protocol.Messages
 {
-    public class KitAllocatedMessage : IMessage
+    public readonly record struct KitAllocatedMessage : IMessage
     {
         public const byte Type = 0xA1;
 

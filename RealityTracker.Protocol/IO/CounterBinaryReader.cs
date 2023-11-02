@@ -6,7 +6,7 @@ namespace RealityTracker.Protocol.IO
     /// <summary>
     /// A wrapper around <see cref="BinaryReader"/> that provides a counter to see how many bytes were read.<br>
     /// </summary>
-    public class CounterBinaryReader : BinaryReader
+    public sealed class CounterBinaryReader : BinaryReader
     {
         public CounterBinaryReader(Stream input) : base(input)
         {

@@ -1,6 +1,6 @@
 ﻿namespace RealityTracker.Protocol.Messages
 {
-    public sealed record ChatMessage : IMessage
+    public readonly record struct ChatMessage : IMessage
     {
         public const byte Type = 0x51;
         public required ChatChannel Channel { get; init; }

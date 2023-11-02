@@ -1,6 +1,6 @@
 ﻿namespace RealityTracker.Protocol.Messages
 {
-    public class KillMessage : IMessage
+    public readonly record struct KillMessage : IMessage
     {
         public const byte Type = 0x50;
         public required string Weapon { get; init; }

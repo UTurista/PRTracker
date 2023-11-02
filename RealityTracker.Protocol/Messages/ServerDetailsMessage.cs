@@ -1,9 +1,6 @@
-﻿using RealityTracker.Protocol.Extensions;
-using System.Diagnostics.CodeAnalysis;
-
-namespace RealityTracker.Protocol.Messages
+﻿namespace RealityTracker.Protocol.Messages
 {
-    public sealed record ServerDetailsMessage : IMessage
+    public readonly record struct ServerDetailsMessage : IMessage
     {
         public const byte Type = 0x00;
         public required int Version { get; init; }

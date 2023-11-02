@@ -1,16 +1,13 @@
-﻿using RealityTracker.Protocol.Extensions;
-using RealityTracker.Protocol.IO;
-using System.Diagnostics.CodeAnalysis;
-using System.Numerics;
+﻿using System.Numerics;
 
 namespace RealityTracker.Protocol.Messages
 {
-    public class VehicleUpdateMessage : IMessage
+    public readonly record struct VehicleUpdateMessage : IMessage
     {
         public const byte Type = 0x20;
         public required Vehicle[] Vehicles { get; init; }
 
-        public sealed record Vehicle
+        public readonly record struct  Vehicle
         {
             public required Flags VehicleUpdateFlags { get; init; }
             public required short VehicleID { get; init; }

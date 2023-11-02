@@ -2,7 +2,7 @@
 
 namespace RealityTracker.Protocol.Messages
 {
-    public sealed record CacheAddMessage : IMessage
+    public readonly record struct CacheAddMessage : IMessage
     {
         public const byte Type = 0x70;
 

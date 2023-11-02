@@ -1,16 +1,13 @@
-﻿using RealityTracker.Protocol.Extensions;
-using RealityTracker.Protocol.IO;
-using System.Diagnostics.CodeAnalysis;
-using System.Numerics;
+﻿using System.Numerics;
 
 namespace RealityTracker.Protocol.Messages
 {
-    public class PlayerUpdateMessage : IMessage
+    public readonly record struct PlayerUpdateMessage : IMessage
     {
         public const byte Type = 0x10;
         public required Player[] Players { get; init; }
 
-        public sealed record Player
+        public readonly record struct Player
         {
             public required Flags UpdateFlags { get; init; }
             public required byte PlayerID { get; init; }

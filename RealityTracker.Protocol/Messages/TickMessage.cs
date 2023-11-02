@@ -1,8 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace RealityTracker.Protocol.Messages
+﻿namespace RealityTracker.Protocol.Messages
 {
-    public sealed class TickMessage : IMessage
+    public readonly record struct TickMessage : IMessage
     {
         public const byte Type = 0xF1;
 
