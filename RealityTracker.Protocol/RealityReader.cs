@@ -1,11 +1,8 @@
 ﻿using RealityTracker.Protocol.Exceptions;
 using RealityTracker.Protocol.IO;
 using RealityTracker.Protocol.Messages;
-using System;
 using System.IO.Compression;
 using System.Numerics;
-using System.Reflection.PortableExecutable;
-using System.Xml.Linq;
 
 namespace RealityTracker.Protocol
 {
@@ -16,7 +13,6 @@ namespace RealityTracker.Protocol
         public RealityReader(Stream reader)
         {
             ArgumentNullException.ThrowIfNull(reader);
-
             _reader = new CounterBinaryReader(new ZLibStream(reader, CompressionMode.Decompress));
         }
 
@@ -93,15 +89,22 @@ namespace RealityTracker.Protocol
                 ProjectileUpdateMessage.Type => ReadProjectileUpdateMessage(messageLength),
                 ProjectileRemoveMessage.Type => ReadProjectileRemoveMessage(),
 
-                RoundEndedMessage.Type => new RoundEndedMessage(_reader, messageLength),
+                RoundEndedMessage.Type => RoundEndedMessage.Instance,
                 TickMessage.Type => ReadTickMessage(),
                 _ => throw new NotImplementedException($"Message 0x{messageType:X2} is not implemented"),
             };
         }
 
-        private FobRemoveMessage ReadFlagUpdateMessage()
+        private FlagUpdateMessage ReadFlagUpdateMessage()
         {
-            throw new NotImplementedException();
+            var id = _reader.ReadInt16();
+            var newOwner = _reader.ReadByte();
+
+            return new FlagUpdateMessage
+            {
+                Id = id,
+                NewOwner = newOwner,
+            };
         }
 
         private PlayerRemoveMessage ReadPlayerRemoveMessage()
@@ -308,7 +311,6 @@ namespace RealityTracker.Protocol
         {
             var deltaTime = _reader.ReadByte();
 
-            
             return new TickMessage
             {
                 DeltaTime = TimeSpan.FromSeconds(deltaTime),
