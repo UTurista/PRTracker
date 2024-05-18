@@ -40,12 +40,12 @@
 
         public override async Task<int> ReadAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
         {
-            Console.WriteLine($"ReadAsync {_sourceStream.Position}/{count}..." );
+            Console.WriteLine($"ReadAsync {_sourceStream.Position}/{count}...");
             count = Math.Min(count, _chunkSize);
 
             int totalBytesRead = await _sourceStream.ReadAsync(buffer, offset, count, cancellationToken: cancellationToken);
             await Task.Delay(_delayMilliseconds, cancellationToken);
-            
+
             return totalBytesRead;
         }
 

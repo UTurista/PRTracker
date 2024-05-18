@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using RealityTracker.Protocol.IO;
+using System.Numerics;
 
 namespace RealityTracker.Protocol.Messages
 {
@@ -6,6 +7,30 @@ namespace RealityTracker.Protocol.Messages
     {
         public const byte Type = 0xA3;
         public required Order[] Orders { get; init; }
+
+
+        internal static SquadLeaderOrdersMessage Create(short messageLength, CounterBinaryReader reader)
+        {
+            var orders = new List<SquadLeaderOrdersMessage.Order>();
+            while (reader.BytesRead < messageLength)
+            {
+                var teamSquad = reader.ReadByte();
+                var orderType = reader.ReadByte();
+                var position = reader.ReadVector3();
+
+                orders.Add(new SquadLeaderOrdersMessage.Order
+                {
+                    Team = teamSquad,
+                    Squad = teamSquad,
+                    Position = position,
+                });
+            }
+
+            return new SquadLeaderOrdersMessage()
+            {
+                Orders = orders.ToArray(),
+            };
+        }
 
         public readonly record struct Order
         {

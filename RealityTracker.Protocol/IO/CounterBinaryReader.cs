@@ -98,9 +98,9 @@ namespace RealityTracker.Protocol.IO
 
         internal float[] ReadSingleArray(int length)
         {
-            if(length == 0)
+            if (length == 0)
             {
-                return Array.Empty<float>();    
+                return Array.Empty<float>();
             }
 
             var array = new float[length];
