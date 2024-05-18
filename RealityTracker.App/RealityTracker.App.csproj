@@ -18,11 +18,46 @@
 
   <ItemGroup>
     <Folder Include="Files\" />
-    <Folder Include="Exceptions\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="Files\tracker_2023_07_10_16_54_44_assault_on_grozny_gpm_cq_64.PRdemo">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Files\tracker_2024_05_09_19_26_04_burning_sands_gpm_cq_128.PRdemo">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Files\tracker_2024_05_09_20_30_12_silent_eagle_gpm_cq_128.PRdemo">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Files\tracker_2024_05_10_03_41_37_silent_eagle_gpm_vehicles_64.PRdemo">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Files\tracker_2024_05_11_23_49_43_korbach_offensive_gpm_cq_128.PRdemo">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Files\tracker_2024_05_12_00_47_09_masirah_gpm_cq_64.PRdemo">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Files\tracker_2024_05_18_05_07_48_wanda_shan_gpm_gungame_16.PRdemo">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Files\tracker_2024_05_18_05_41_25_black_gold_gpm_gungame_64.PRdemo">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Files\tracker_2024_05_18_07_41_56_khamisiyah_gpm_vehicles_64.PRdemo">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Files\tracker_2024_05_18_08_53_24_korengal_gpm_insurgency_64.PRdemo">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Files\tracker_2024_05_18_09_53_10_gaza_2_gpm_insurgency_64.PRdemo">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Files\tracker_2024_05_18_14_53_04_operation_falcon_gpm_cq_32.PRdemo">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Files\tracker_2024_05_18_15_46_17_shijiavalley_gpm_cq_64.PRdemo">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

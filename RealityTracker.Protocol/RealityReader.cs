@@ -271,7 +271,7 @@ namespace RealityTracker.Protocol
             {
                 var id = _reader.ReadUInt16();
                 var yaw = _reader.ReadInt16();
-                var position  = _reader.ReadVector3();
+                var position = _reader.ReadVector3();
 
                 projectiles.Add(new ProjectileUpdateMessage.Projectile
                 {
@@ -479,7 +479,7 @@ namespace RealityTracker.Protocol
                 byte inverted = _reader.ReadByte();
                 byte type = _reader.ReadByte();
                 byte nPoints = _reader.ReadByte();
-                float[] points = _reader.ReadSingleArray(2*nPoints);
+                float[] points = _reader.ReadSingleArray(2 * nPoints);
 
                 areas.Add(new CombatAreaListMessage.Area
                 {
@@ -578,7 +578,7 @@ namespace RealityTracker.Protocol
 
         private IntelChangeMessage ReadIntelChangeMessage()
         {
-           sbyte intel = _reader.ReadSByte();
+            sbyte intel = _reader.ReadSByte();
 
             return new IntelChangeMessage
             {
@@ -618,7 +618,7 @@ namespace RealityTracker.Protocol
             var roundLength = _reader.ReadInt16();
             var briefingTime = _reader.ReadInt16();
             var mapName = _reader.ReadCString();
-            var mapGamemode = _reader.ReadCString(  );
+            var mapGamemode = _reader.ReadCString();
             var mapLayer = _reader.ReadByte();
             var opforTeamName = _reader.ReadCString();
             var bluforTeamName = _reader.ReadCString();
