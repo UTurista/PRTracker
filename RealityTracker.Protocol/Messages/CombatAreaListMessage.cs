@@ -9,7 +9,7 @@ public readonly record struct CombatAreaListMessage : IMessage
 
     internal static CombatAreaListMessage Create(short messageLength, CounterBinaryReader _reader)
     {
-        var areas = new List<CombatAreaListMessage.Area>();
+        var areas = new List<Area>();
         while (_reader.BytesRead < messageLength)
         {
             byte team = _reader.ReadByte();
@@ -18,7 +18,7 @@ public readonly record struct CombatAreaListMessage : IMessage
             byte nPoints = _reader.ReadByte();
             float[] points = _reader.ReadSingleArray(2 * nPoints);
 
-            areas.Add(new CombatAreaListMessage.Area
+            areas.Add(new Area
             {
                 Team = team,
                 Inverted = inverted,

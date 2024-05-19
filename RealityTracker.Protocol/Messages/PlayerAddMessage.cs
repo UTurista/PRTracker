@@ -9,7 +9,7 @@ public readonly record struct PlayerAddMessage : IMessage
 
     internal static PlayerAddMessage Create(short messageLength, CounterBinaryReader reader)
     {
-        var players = new List<PlayerAddMessage.Player>();
+        var players = new List<Player>();
         while (reader.BytesRead < messageLength)
         {
             var playerID = reader.ReadByte();
@@ -17,7 +17,7 @@ public readonly record struct PlayerAddMessage : IMessage
             var hash = reader.ReadCString();
             var ip = reader.ReadCString();
 
-            players.Add(new PlayerAddMessage.Player
+            players.Add(new Player
             {
                 PlayerID = playerID,
                 PlayerName = playerName,

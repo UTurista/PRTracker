@@ -9,14 +9,14 @@ public readonly record struct VehicleAddMessage : IMessage
 
     internal static VehicleAddMessage Create(short messageLength, CounterBinaryReader reader)
     {
-        var vehicles = new List<VehicleAddMessage.Vehicle>();
+        var vehicles = new List<Vehicle>();
         while (reader.BytesRead < messageLength)
         {
             var vehicleID = reader.ReadInt16();
             var name = reader.ReadCString();
             var maxHealth = reader.ReadUInt16();
 
-            vehicles.Add(new VehicleAddMessage.Vehicle
+            vehicles.Add(new Vehicle
             {
                 VehicleID = vehicleID,
                 Name = name,

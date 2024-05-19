@@ -1,6 +1,5 @@
-﻿namespace RealityTracker.Protocol.Messages
+﻿namespace RealityTracker.Protocol.Messages;
+
+public interface IMessage
 {
-    public interface IMessage
-    {
-    }
 }

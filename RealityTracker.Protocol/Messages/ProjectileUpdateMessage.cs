@@ -11,14 +11,14 @@ internal readonly record struct ProjectileUpdateMessage : IMessage
 
     internal static ProjectileUpdateMessage Create(short messageLength, CounterBinaryReader reader)
     {
-        var projectiles = new List<ProjectileUpdateMessage.Projectile>();
+        var projectiles = new List<Projectile>();
         while (reader.BytesRead < messageLength)
         {
             var id = reader.ReadUInt16();
             var yaw = reader.ReadInt16();
             var position = reader.ReadVector3();
 
-            projectiles.Add(new ProjectileUpdateMessage.Projectile
+            projectiles.Add(new Projectile
             {
                 Id = id,
                 Yaw = yaw,

@@ -26,21 +26,21 @@ public readonly record struct ChatMessage : IMessage
         };
     }
 
-    private static (ChatMessage.ChatChannel channel, byte? squad) DecodeChannel(byte encodedChannel)
+    private static (ChatChannel channel, byte? squad) DecodeChannel(byte encodedChannel)
     {
         if (encodedChannel == 0x00)
         {
-            return (ChatMessage.ChatChannel.All, null);
+            return (ChatChannel.All, null);
         }
 
         if (encodedChannel >= 0x30)
         {
-            return ((ChatMessage.ChatChannel)encodedChannel, null);
+            return ((ChatChannel)encodedChannel, null);
         }
 
         byte squad = (byte)(0x01 & encodedChannel);
         byte channel = (byte)(0x10 & encodedChannel);
-        return ((ChatMessage.ChatChannel)channel, squad);
+        return ((ChatChannel)channel, squad);
     }
 
     public enum ChatChannel

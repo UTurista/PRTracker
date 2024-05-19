@@ -11,14 +11,14 @@ public readonly record struct FobAddMessage : IMessage
 
     internal static FobAddMessage Create(short messageLength, CounterBinaryReader reader)
     {
-        var fobs = new List<FobAddMessage.Fob>();
+        var fobs = new List<Fob>();
         while (reader.BytesRead < messageLength)
         {
             var id = reader.ReadInt32();
             var team = reader.ReadByte();
             var position = reader.ReadVector3();
 
-            fobs.Add(new FobAddMessage.Fob
+            fobs.Add(new Fob
             {
                 Id = id,
                 Team = team,

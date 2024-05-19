@@ -10,7 +10,7 @@ public readonly record struct FlagListMessage : IMessage
 
     internal static FlagListMessage Create(short messageLength, CounterBinaryReader reader)
     {
-        var flags = new List<FlagListMessage.Flag>();
+        var flags = new List<Flag>();
         while (reader.BytesRead < messageLength)
         {
             var id = reader.ReadInt16();
@@ -18,7 +18,7 @@ public readonly record struct FlagListMessage : IMessage
             var position = reader.ReadVector3();
             var radius = reader.ReadUInt16();
 
-            flags.Add(new FlagListMessage.Flag
+            flags.Add(new Flag
             {
                 Id = id,
                 Team = team,

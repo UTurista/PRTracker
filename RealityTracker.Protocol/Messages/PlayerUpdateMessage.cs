@@ -10,30 +10,30 @@ public readonly record struct PlayerUpdateMessage : IMessage
 
     internal static PlayerUpdateMessage Create(short messageLength, CounterBinaryReader _reader)
     {
-        var players = new List<PlayerUpdateMessage.Player>();
+        var players = new List<Player>();
         while (_reader.BytesRead < messageLength)
         {
-            var updateFlags = (PlayerUpdateMessage.Flags)_reader.ReadUInt16();
+            var updateFlags = (Flags)_reader.ReadUInt16();
             var playerId = _reader.ReadByte();
 
-            byte? team = updateFlags.HasFlag(PlayerUpdateMessage.Flags.Team) ? _reader.ReadByte() : null;
-            byte? squadOrIsSquadLeader = updateFlags.HasFlag(PlayerUpdateMessage.Flags.Squad) ? _reader.ReadByte() : null;
-            short? vehicleID = updateFlags.HasFlag(PlayerUpdateMessage.Flags.Vehicle) ? _reader.ReadInt16() : null;
-            string? vehicleSeatName = updateFlags.HasFlag(PlayerUpdateMessage.Flags.Vehicle) && vehicleID >= 0 ? _reader.ReadCString() : null;
-            byte? vehicleSeatNumber = updateFlags.HasFlag(PlayerUpdateMessage.Flags.Vehicle) && vehicleID >= 0 ? _reader.ReadByte() : null;
-            byte? health = updateFlags.HasFlag(PlayerUpdateMessage.Flags.Health) ? _reader.ReadByte() : null;
-            short? score = updateFlags.HasFlag(PlayerUpdateMessage.Flags.Score) ? _reader.ReadInt16() : null;
-            short? teamworkScore = updateFlags.HasFlag(PlayerUpdateMessage.Flags.TeamworkScore) ? _reader.ReadInt16() : null;
-            short? kills = updateFlags.HasFlag(PlayerUpdateMessage.Flags.Kills) ? _reader.ReadInt16() : null;
-            short? deaths = updateFlags.HasFlag(PlayerUpdateMessage.Flags.Deaths) ? _reader.ReadInt16() : null;
-            short? ping = updateFlags.HasFlag(PlayerUpdateMessage.Flags.Ping) ? _reader.ReadInt16() : null;
-            bool? isAlive = updateFlags.HasFlag(PlayerUpdateMessage.Flags.IsAlive) ? _reader.ReadBoolean() : null;
-            bool? isJoining = updateFlags.HasFlag(PlayerUpdateMessage.Flags.IsJoining) ? _reader.ReadBoolean() : null;
-            Vector3? position = updateFlags.HasFlag(PlayerUpdateMessage.Flags.Position) ? _reader.ReadVector3() : null;
-            short? yawRotation = updateFlags.HasFlag(PlayerUpdateMessage.Flags.Rotation) ? _reader.ReadInt16() : null;
-            string? kitName = updateFlags.HasFlag(PlayerUpdateMessage.Flags.Kit) ? _reader.ReadCString() : null;
+            byte? team = updateFlags.HasFlag(Flags.Team) ? _reader.ReadByte() : null;
+            byte? squadOrIsSquadLeader = updateFlags.HasFlag(Flags.Squad) ? _reader.ReadByte() : null;
+            short? vehicleID = updateFlags.HasFlag(Flags.Vehicle) ? _reader.ReadInt16() : null;
+            string? vehicleSeatName = updateFlags.HasFlag(Flags.Vehicle) && vehicleID >= 0 ? _reader.ReadCString() : null;
+            byte? vehicleSeatNumber = updateFlags.HasFlag(Flags.Vehicle) && vehicleID >= 0 ? _reader.ReadByte() : null;
+            byte? health = updateFlags.HasFlag(Flags.Health) ? _reader.ReadByte() : null;
+            short? score = updateFlags.HasFlag(Flags.Score) ? _reader.ReadInt16() : null;
+            short? teamworkScore = updateFlags.HasFlag(Flags.TeamworkScore) ? _reader.ReadInt16() : null;
+            short? kills = updateFlags.HasFlag(Flags.Kills) ? _reader.ReadInt16() : null;
+            short? deaths = updateFlags.HasFlag(Flags.Deaths) ? _reader.ReadInt16() : null;
+            short? ping = updateFlags.HasFlag(Flags.Ping) ? _reader.ReadInt16() : null;
+            bool? isAlive = updateFlags.HasFlag(Flags.IsAlive) ? _reader.ReadBoolean() : null;
+            bool? isJoining = updateFlags.HasFlag(Flags.IsJoining) ? _reader.ReadBoolean() : null;
+            Vector3? position = updateFlags.HasFlag(Flags.Position) ? _reader.ReadVector3() : null;
+            short? yawRotation = updateFlags.HasFlag(Flags.Rotation) ? _reader.ReadInt16() : null;
+            string? kitName = updateFlags.HasFlag(Flags.Kit) ? _reader.ReadCString() : null;
 
-            players.Add(new PlayerUpdateMessage.Player
+            players.Add(new Player
             {
                 UpdateFlags = updateFlags,
                 PlayerID = playerId,
