@@ -1,16 +1,8 @@
-﻿using System.Runtime.Serialization;
+﻿namespace RealityTracker.Protocol.Exceptions;
 
-namespace RealityTracker.Protocol.Exceptions
+public sealed class InvalidMessageLengthException : TrackerException
 {
-    [Serializable]
-    public class InvalidMessageLengthException : TrackerException
+    public InvalidMessageLengthException(int messageType, int expectedLength, int actualLength) : base($"While reading message 0x{messageType:X2}, read {actualLength}bytes but expected {expectedLength}bytes")
     {
-        public InvalidMessageLengthException(int messageType, int expectedLength, int actualLength) : base($"While reading message 0x{messageType:X2}, read {actualLength}bytes but expected {expectedLength}bytes")
-        {
-        }
-
-        protected InvalidMessageLengthException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
     }
 }
